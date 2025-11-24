@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>tambah</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <div class="container">
     <h1>Form Tambah Siswa</h1>
     
-    <form>
-    <label>NIS</label>
-    <input type="text"  id="nis"/>
-    
-    <label>Nama</label>
-    <input type="text" id="nama"/>
-    
-    <label>Kelas</label>
-    <select name="kelas" id="kelas">
-      <option value="X">X</option>
-      <option value="XI">XI</option>
-      <option value="XII">XII</option>
+    <form id="fromTambah">
+      <label>NIS</label>
+      <input type="texT" id="nis" />
       
-    </select>
-    <button id="tombolSimpan">Simpana</button>
-    <a href="daftar.html">Pergi ke Halaman Daftar Siswa</a>
+      <label>Nama</label>
+      <input type="text" id="nama" />
+      
+      <label>Kelas</label>
+      <select name="kelas" id="kelas">
+        <option value="X">X</option>
+        <option value="XI">XI</option>
+        <option value="XII">XII</option>
+        
+      </select>
+      <button id="tombolSimpan" type="submit">Simpan</button>
+      <a href="daftar.html">Pergi ke Halaman Daftar Siswa</a>
     </form>
     
-    
   </div>
+  <script type="module">
+    import { tambahDataSiswa } from './main.js'
+    
+    //mengirimkan data siswa dari from
+    const formTambah = document.getElementById('fromTambah')
+    
+    //event ketika from disumbit (dikirim
+    formTambah.addEventListener('submit', function(e) {
+      //mencegah reload halaman
+      e.preventDefault()
+      
+      //eksekusi fungsi tambah data siswa
+      tambahDataSiswa()
+    })
+  </script>
 </body>
+
 </html>
